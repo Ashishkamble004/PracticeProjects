@@ -1,0 +1,40 @@
+Hi Everyone.
+
+Lately I have been seeing posts of projects for portfolio on #CloudGuruChallenge ., initiated by Forrest Brazeal. Kudos to that.
+
+So I made a pet project as well. Using the below:
+
+1.Docker
+2.ECS
+3.ALB
+4.ACM
+5.CloudFront
+6.Route53
+
+Steps:
+1. Bought a domain in Route 53. (Would be helpful for future use cases as well)
+2. Created website using basic HTML. Created a Docker Image containing all the files for the website.
+3. Uploaded the Docker Image to the Docker repository.
+4. ECS on Fargate: Created Task Definition, with the Docker image in Container Definition, Set the port mappings.
+5. Created ECS Cluster. Added Task Definition in the Cluster. Created Service for the cluster. 
+6. Created ALB as frontend to the service in ECS Cluster(Did the changes in the Cluster as well).
+7. Created CloudFront Distribution, as ALB as Origin.
+8. Created an SSL Certificate for the domain, and updated the "Alternate Domain CNAME, and SSL Certificates for the CloudFront distribution.
+9. Added Record in Route 53 to THE CloudFront Distribution.
+
+And the result is https://animalsworld-ashishk.cloudblogs.de .
+
+Alternatives:
+1. As the website is static. I could have used S3 for hosting. But wanted to play around with ECS & ALB.
+2. Using S3, Could have saved costs and is the recommended way to go fo this use case. 
+3. Instead of Docker Repo, could have used the ECR service by AWS. (This way the whole outcome would be based outof AWS itself.
+
+Future Cases:
+Would love to make it all IAC using CloudFormation, that would be next.
+
+Shoutouts:: Huge Thanks to Adrian Cantrill for awesome courses which provide good foundational knowledge, Forrest Brazeal and everyone using the #CloudGuruChallenge, for motivating me to develop something.
+Also Bansi Mendapara, his posts make me to create more and more projects on AWS using various services. 
+"Certifications provide validity to your knowledge, But Practical Projects increases your skill level."
+
+P.S :: Please watch Forrest Brazeal's latest Youtube video on Acloudguru's Youtube channel.
+Also the website just contains Cartoon Animal Photos *wink wink* Adrian Cantrill. I am not a web developer so please bare with me.
